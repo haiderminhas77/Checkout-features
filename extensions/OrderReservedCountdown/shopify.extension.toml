@@ -6,7 +6,7 @@
 api_version = "2024-10"
 
 [[extensions]]
-name = "order-reserve-countdown"
+name = "Order reserved countdown"
 handle = "order-reserve-countdown"
 type = "ui_extension"
 
