@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "8e1d1584daaa321b2f65af9a2397ec05"
-name = "checkout-features"
+name = "Checkout Features"
 handle = "checkout-features-4"
 application_url = "https://shopify.dev/apps/default-app-home"
 embedded = true
