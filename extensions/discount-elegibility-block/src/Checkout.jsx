@@ -8,7 +8,8 @@ import {
   useApplyDiscountCodeChange,
   useCartLines,
   BlockLayout,
-  useDiscountCodes
+  useDiscountCodes,
+  useSettings
 } from "@shopify/ui-extensions-react/checkout";
 import { InlineLayout } from "@shopify/ui-extensions/checkout";
 import { useEffect, useState } from "react";
@@ -23,17 +24,18 @@ function Extension() {
   const applyDiscountCodeChange = useApplyDiscountCodeChange();
   const [isEligible, setIsEligible] = useState(false);
   const [isApplied, setIsApplied] = useState(false);
+  const settings = useSettings();
 
 
   useEffect(() => {
-    if (cartItems.length >= 2) {
+    if (cartItems.length >= settings.number_of_items) {
       setIsEligible(true);
     }
     else {
       setIsEligible(false);
       if (isApplied) {
         applyDiscountCodeChange({
-          code: "FREESHIPPING",
+          code: settings.discount_code,
           type: "removeDiscountCode"
         })
       }
@@ -41,7 +43,7 @@ function Extension() {
   }, [cartItems])
 
   useEffect(() => {
-    if (discounts.find(discount => discount?.code === "FREESHIPPING")) {
+    if (discounts.find(discount => discount?.code === settings.discount_code)) {
       setIsApplied(true);
     }
     else {
@@ -52,7 +54,7 @@ function Extension() {
   function applyDiscount() {
     setIsApplied(true);
     applyDiscountCodeChange({
-      code: "FREESHIPPING",
+      code: settings.discount_code,
       type: "addDiscountCode"
     })
   }
@@ -61,9 +63,11 @@ function Extension() {
     return (
       <InlineLayout columns={["fill", "auto"]} blockAlignment="start" padding={['base', 'none', 'base', 'none',]}>
         <BlockLayout rows={["auto", 'fill']}>
-          <Heading level={3}>Congratulations! You are eligible for free shipping discount!</Heading>
-          <View padding={['tight', 'none', 'tight', 'none',]}>
-            <Text inlineAlignment="left">By applying this you can get free shipping all around the world.</Text>
+          <View padding={['none', 'tight', 'none', 'none',]}>
+            <Heading level={3}>{settings.heading}</Heading>
+            <View padding={['tight', 'none', 'tight', 'none',]}>
+              <Text inlineAlignment="left">{settings.details}</Text>
+            </View>
           </View>
         </BlockLayout>
         <Button onPress={applyDiscount}><View padding={['none', 'tight', 'none', 'none',]}><Icon size="base" appearance="monochrome" source="truck" /></View>Apply</Button>

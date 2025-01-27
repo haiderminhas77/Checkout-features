@@ -44,9 +44,23 @@ api_access = true
 # your extension. Learn more:
 # https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#settings-definition
 
-# [extensions.settings]
-# [[extensions.settings.fields]]
-# key = "banner_title"
-# type = "single_line_text_field"
-# name = "Banner title"
-# description = "Enter a title for the banner"
+[extensions.settings]
+[[extensions.settings.fields]]
+key = "discount_code"
+type = "single_line_text_field"
+name = "Discount code"
+description = "Please add discount code name which will apply after customer click on apply button."
+[[extensions.settings.fields]]
+key = "number_of_items"
+type = "number_integer"
+name = "Number of items"
+description = "Please add the number so when the line item will get equal or greater to the mentioned number then the extension block will appear automatically."
+[[extensions.settings.fields]]
+key = "heading"
+type = "single_line_text_field"
+name = "Heading"
+[[extensions.settings.fields]]
+key = "details"
+type = "single_line_text_field"
+name = "Description"
+description = "Please add description regarding the discount."
