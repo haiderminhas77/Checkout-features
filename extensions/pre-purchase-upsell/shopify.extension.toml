@@ -6,7 +6,7 @@
 api_version = "2024-10"
 
 [[extensions]]
-name = "Upsell widget"
+name = "Pre purchase upsell"
 handle = "upsell-widget"
 type = "ui_extension"
 

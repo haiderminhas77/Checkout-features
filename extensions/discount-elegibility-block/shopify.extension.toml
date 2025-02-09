@@ -6,7 +6,7 @@
 api_version = "2025-01"
 
 [[extensions]]
-name = "discount-elegibility-block"
+name = "Discount elegibility block"
 handle = "discount-elegibility-block"
 type = "ui_extension"
 
