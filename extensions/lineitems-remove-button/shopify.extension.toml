@@ -3,11 +3,11 @@
 
 # The version of APIs your extension will receive. Learn more:
 # https://shopify.dev/docs/api/usage/versioning
-api_version = "2024-10"
+api_version = "2025-01"
 
 [[extensions]]
-name = "Pre purchase upsell"
-handle = "pre-purchased-upsell"
+name = "Lineitem remove button"
+handle = "lineitems-remove-button"
 type = "ui_extension"
 
 
@@ -17,7 +17,7 @@ type = "ui_extension"
 
 [[extensions.targeting]]
 module = "./src/Checkout.jsx"
-target = "purchase.checkout.block.render"
+target = "purchase.checkout.cart-line-item.render-after"
 
 [extensions.capabilities]
 # Gives your extension access to directly query Shopify’s storefront API.
@@ -44,28 +44,9 @@ api_access = true
 # your extension. Learn more:
 # https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#settings-definition
 
-[extensions.settings]
-[[extensions.settings.fields]]
-key = "heading"
-type = "single_line_text_field"
-name = "Heading"
-[[extensions.settings.fields]]
-key = "selected_variant_01"
-type = "variant_reference"
-name = "Selected variant"
-description = "Select variant to offer"
-[[extensions.settings.fields]]
-key = "selected_variant_02"
-type = "variant_reference"
-name = "Selected variant"
-description = "Select variant to offer"
-[[extensions.settings.fields]]
-key = "selected_variant_03"
-type = "variant_reference"
-name = "Selected variant"
-description = "Select variant to offer"
-[[extensions.settings.fields]]
-key = "selected_variant_04"
-type = "variant_reference"
-name = "Selected variant"
-description = "Select variant to offer"
+# [extensions.settings]
+# [[extensions.settings.fields]]
+# key = "banner_title"
+# type = "single_line_text_field"
+# name = "Banner title"
+# description = "Enter a title for the banner"

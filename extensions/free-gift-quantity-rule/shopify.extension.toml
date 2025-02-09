@@ -2,7 +2,7 @@ api_version = "2025-01"
 
 [[extensions]]
 name = "Free gift quantity rule"
-handle = "cart-checkout-validation"
+handle = "free-gift-quantity-rule"
 type = "function"
 
 description = "Free gift quantity should not greater then one."
